@@ -3,171 +3,89 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bussola del Gusto – proposta per Busti Formaggi</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<title>Un appuntamento per te</title>
 <style>
-:root{--bg:#0e0c0a;--bg2:#1a1612;--ink:#f3ebdc;--mute:#b3a58f;--acc:#d2a24c;--line:#3d2f22;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f0e4;--bg2:#ebe1cf;--ink:#2a1d12;--mute:#6f6050;--acc:#8a5a1c;--line:#d4c6ae}}
-:root[data-theme="light"]{--bg:#f6f0e4;--bg2:#ebe1cf;--ink:#2a1d12;--mute:#6f6050;--acc:#8a5a1c;--line:#d4c6ae}
-:root[data-theme="dark"]{--bg:#0e0c0a;--bg2:#1a1612;--ink:#f3ebdc;--mute:#b3a58f;--acc:#d2a24c;--line:#3d2f22}
+:root{--bg1:#fdf2f8;--bg2:#e9d5f2;--card:#ffffffd9;--ink:#5a1230;--soft:#8a5a70;--pink:#d6246e;--chip:#f6e9ef;--line:#e7c9d6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#1e0f18;--bg2:#2a1432;--card:#2b1823d9;--ink:#ffe3ee;--soft:#d9a9be;--pink:#f0508f;--chip:#3b2230;--line:#5a3347;color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#1e0f18;--bg2:#2a1432;--card:#2b1823d9;--ink:#ffe3ee;--soft:#d9a9be;--pink:#f0508f;--chip:#3b2230;--line:#5a3347;color-scheme:dark}
 *{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Instrument Sans",system-ui,sans-serif}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0 0 .5em}
-h1{font-size:clamp(2.4rem,9vw,4.6rem);font-weight:700}
-h2{font-size:clamp(1.6rem,5vw,2.4rem)}
-section{padding:56px 20px;max-width:760px;margin:0 auto}
-p{max-width:60ch}.m{color:var(--mute)}
-.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center}
-button{font:inherit;color:inherit;cursor:pointer}
-.btn{background:var(--acc);color:var(--bg);border:0;border-radius:999px;padding:13px 26px;font-weight:600;margin-top:12px}
-.opt{display:block;width:100%;text-align:left;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:8px 0}
-.opt:hover,.opt:focus-visible,.chip:focus-visible,.btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-.chip{background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 16px;margin:4px 6px 4px 0}
-.chip[aria-pressed=true]{background:var(--acc);color:var(--bg);border-color:var(--acc)}
-.panel{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:22px}
-.bar{height:10px;background:var(--line);border-radius:5px;margin:4px 0 14px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--acc)}
-.tl{border-left:2px solid var(--acc);padding-left:18px;margin-left:6px}
-.tl div{margin-bottom:18px}.tl b{font-family:Fraunces,Georgia,serif;font-size:1.15rem}
-.tag{font-size:.82rem;color:var(--mute);border:1px dashed var(--line);border-radius:6px;padding:2px 8px;display:inline-block}
-.row{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
-#needle{transform-origin:100px 100px;transition:transform 2.4s cubic-bezier(.2,1.3,.3,1)}
-.hero svg{width:min(70vw,260px);margin-top:18px}
-@media (prefers-reduced-motion:reduce){#needle{transition:none}.spin{animation:none!important}}
-.spin{animation:sp 6s linear infinite;transform-origin:100px 100px}@keyframes sp{to{transform:rotate(360deg)}}
-select{font:inherit;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px;width:100%;margin:6px 0}input{font:inherit;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px;width:100%;margin:6px 0}.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;justify-content:flex-end;padding:6px 14px;border-bottom:1px solid var(--line)}.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-.alt{background:var(--bg2);box-shadow:0 0 0 100vmax var(--bg2);clip-path:inset(0 -100vmax)}
-.alt .panel{background:var(--bg)}
-.hero{background:radial-gradient(circle at 80% 30%,rgba(201,150,90,.22),transparent 55%);box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax)}
-.hero h1{letter-spacing:-.02em}.hero svg{width:min(78vw,300px);filter:drop-shadow(0 10px 30px rgba(201,150,90,.35))}
-.opt{transition:transform .15s,border-color .15s}.opt:hover{transform:translateX(4px);border-color:var(--acc)}
-.panel{box-shadow:0 10px 30px rgba(0,0,0,.15)}
-nav.top{overflow-x:auto;gap:4px;justify-content:space-between;white-space:nowrap}nav.top a{color:var(--ink);text-decoration:none;padding:8px 10px;font-size:.92rem}nav.top a:focus-visible{outline:2px solid var(--acc)}
-.pass{--bg:#0e0c0a;--bg2:#1a1612;--ink:#f3ebdc;--mute:#b3a58f;--acc:#d2a24c;--line:#3d2f22;background:linear-gradient(160deg,#1a1612,#0a0807);color:var(--ink);box-shadow:0 0 0 100vmax #1a130d;clip-path:inset(0 -100vmax)}
-.pass .panel{background:rgba(255,255,255,.04)}
-.wheel{width:min(60vw,230px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#dcae66,#a8742f 55%,#6d4518);box-shadow:inset 0 0 40px rgba(0,0,0,.45),0 18px 40px rgba(0,0,0,.55);display:grid;place-items:center;font:700 3.2rem Fraunces,Georgia,serif;color:rgba(70,40,10,.8);text-shadow:1px 1px 0 rgba(255,225,170,.5),-1px -1px 0 rgba(0,0,0,.3)}
-.big{font:700 2.6rem Fraunces,Georgia,serif;line-height:1}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:14px 0}
-.steps i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--acc);color:#0e0c0a;font:700 1rem Fraunces,Georgia,serif;font-style:normal;margin-bottom:6px}
-.note{background:rgba(201,150,90,.12);border-radius:8px;padding:10px 12px;font-size:.92rem}
-textarea{font:inherit;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;padding:10px;width:100%;margin:6px 0;min-height:70px}
-.cert{border:2px double var(--acc);border-radius:12px;padding:22px;text-align:center;margin-top:12px}
-.brand{font:700 1.1rem Fraunces,Georgia,serif;letter-spacing:.12em;color:#f3ebdc;padding:8px 10px}nav.top{background:#0e0c0a;--ink:#f3ebdc;--line:#4a3d2d;--acc:#d2a24c;--bg:#0e0c0a;border-bottom:2px solid #d2a24c}.hero{background:radial-gradient(circle at 80% 30%,rgba(210,162,76,.28),transparent 55%),linear-gradient(#0e0c0a,#1a1612);color:#f3ebdc;--ink:#f3ebdc;--mute:#b3a58f;--bg:#0e0c0a;--bg2:#1a1612;--line:#4a3d2d;--acc:#d2a24c}</style>
+html,body{margin:0;min-height:100%}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px}
+header{width:100%;max-width:440px;margin-bottom:14px}
+.brand{font-weight:700;display:flex;justify-content:space-between;font-size:15px}
+.bar{height:3px;background:var(--line);border-radius:3px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--pink);transition:width .4s}
+.card{width:100%;max-width:440px;background:var(--card);border-radius:28px;padding:28px 22px;text-align:center;box-shadow:0 10px 40px #d6246e22;animation:in .4s}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);font-weight:700}
+h1{font-size:30px;line-height:1.1;margin:14px 0 8px;letter-spacing:-.03em}
+p.sub{color:var(--soft);font-size:14px;margin:0 0 22px}
+.emo{font-size:44px}
+.btn{border:0;border-radius:999px;padding:14px 26px;font-size:16px;font-weight:700;cursor:pointer;color:#fff;background:var(--pink);box-shadow:0 6px 18px #d6246e55;font-family:inherit}
+.btn:disabled{opacity:.4;box-shadow:none}
+.row{display:flex;gap:18px;justify-content:center;align-items:center;min-height:60px}
+#no{background:var(--chip);color:var(--ink);box-shadow:none;z-index:9;touch-action:none;transition:left .18s,top .18s}
+.hint{font-size:12px;color:var(--soft);margin-top:16px;min-height:16px}
+label{display:block;text-align:left;font-size:12px;font-weight:700;margin:12px 0 6px}
+input{width:100%;padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--chip);color:var(--ink);font-size:16px;font-family:inherit}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.opt{border:2px solid transparent;background:var(--chip);color:var(--ink);border-radius:16px;padding:16px 8px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+.opt.on{border-color:var(--pink);background:var(--card)}
+.opt span{display:block;font-size:26px;margin-bottom:4px}
+.paper{background:var(--chip);border-radius:18px;padding:18px;text-align:left;margin:14px 0 20px;font-size:15px;line-height:1.5}
+.paper b{color:var(--pink)}
+.paper hr{border:0;border-top:1px dashed var(--line);margin:12px 0}
+.foot{margin-top:16px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);font-weight:700}
+.heart{position:fixed;bottom:-30px;pointer-events:none;animation:up 3s linear forwards;z-index:20}
+@keyframes up{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+</style>
 </head>
 <body>
-<nav class="top"><b class="brand">BUSTI</b><a href="#quiz">Bussola</a><a href="#esplora">Esplora</a><a href="#passaporto">Pecorino 1955</a><a href="#insight">Insight</a><span id="lang"></span></nav>
-<section class="hero">
-<h1>Bussola del Gusto</h1>
-<p data-k="hero"></p>
-<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="92" fill="none" stroke="var(--acc)" stroke-width="2"/><circle cx="100" cy="100" r="78" fill="none" stroke="var(--line)"/><g class="spin"><path d="M100 28 L110 100 L100 172 L90 100Z" fill="var(--acc)" opacity=".9"/></g><circle cx="100" cy="100" r="6" fill="var(--bg)" stroke="var(--acc)" stroke-width="2"/></svg>
-<div><button class="btn" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})" data-k="cta"></button></div>
-</section>
-<section id="quiz"><h2 data-k="h_quiz"></h2><div id="q" class="panel"></div><div id="res" hidden></div></section>
-<section id="esplora" class="alt"><h2 data-k="h_use"></h2><select id="useSel" aria-label="Formaggio"></select><div id="useOut" class="panel"></div></section>
-<section><h2 data-k="h_cmp"></h2><div class="g"><select id="c1" aria-label="Primo formaggio"></select><select id="c2" aria-label="Secondo formaggio"></select></div><div id="cmpOut" class="panel"></div></section>
-<section class="alt"><h2 data-k="h_store"></h2><div id="storeOut" class="panel"></div></section>
-<div class="pass" id="passaporto"><section>
-<div class="row" style="justify-content:space-between"><div style="flex:1;min-width:250px"><h2 data-k="h_1955"></h2><p class="m" data-k="p_1955"></p>
-<div class="panel"><label>Numero della tua forma<input id="fn" inputmode="numeric" placeholder="Es. 123"></label><label>Peso della forma in kg (facoltativo)<input id="fw" inputmode="decimal" placeholder="Es. 2,5"></label><button class="btn" id="fgo">Scopri il passaporto</button></div>
-<p><span class="tag">Esempio interattivo: il campo non consulta un archivio reale di Busti. Provalo con 123.</span></p></div><div class="wheel" id="wh">123</div></div>
-<div id="fout"></div></section></div>
-<section id="insight" class="alt"><h2 data-k="h_ins"></h2><p class="m" data-k="p_ins"></p>
-<div class="panel"><span class="tag">Dati di esempio, non reali</span><div style="margin-top:14px">
-<div>Cercano un formaggio per l’aperitivo — 46%</div><div class="bar"><i style="width:46%"></i></div>
-<div>Cercano un formaggio da cucina — 34%</div><div class="bar"><i style="width:34%"></i></div>
-<div>Cercano un regalo — 20%</div><div class="bar"><i style="width:20%"></i></div>
-<div>Scelgono “sorprendimi” — 28%</div><div class="bar"><i style="width:28%"></i></div>
-<div>Forme 1955 registrate dai clienti — 312 (esempio)</div></div></div></section>
-<section><h2 data-k="h_plan"></h2><div class="tl">
-<div><b>Settimane 1–2</b><br><span class="m">Analisi: strumenti esistenti, catalogo, canale e obiettivo.</span></div>
-<div><b>Settimane 3–4</b><br><span class="m">Prototipo con le schede ufficiali, regole concordate con il personale, prova da mobile.</span></div>
-<div><b>Settimana 5</b><br><span class="m">Test su un solo canale, ad esempio un QR code nello spaccio o sull’etichetta.</span></div>
-<div><b>Settimana 6</b><br><span class="m">Risultati, feedback e decisione: estendere, correggere o fermarsi.</span></div></div>
-<h3 style="margin-top:32px" data-k="h_end"></h3></section>
+<header><div class="brand"><span>❤ Per te</span><span id="n"></span></div><div class="bar"><i id="pb"></i></div></header>
+<main class="card" id="c"></main>
+<div class="foot">gli appuntamenti sbocciano meglio qui ❤</div>
 <script>
-var L={IT:{hero:"Un modo nuovo di scegliere un formaggio Busti: poche risposte, una direzione. E per l’azienda, un modo semplice di capire cosa cercano davvero i clienti.",cta:"Prova la bussola",h_quiz:"Che cosa cerchi oggi?",h_use:"Cosa ci faccio?",h_cmp:"Confronta due formaggi",h_store:"Conservazione e taglio",h_1955:"Pecorino 1955: la tua forma",p_1955:"Ogni forma di Pecorino 1955 è numerata. Inserisci il tuo numero e ricevi la sua scheda.",h_ins:"Cosa impara l’azienda",p_ins:"Ogni risposta è un dato aggregato e anonimo. Così potrebbe apparire il quadro dopo il test.",h_plan:"Un pilota di sei settimane",h_end:"Partiamo da un piccolo test? Mi piacerebbe costruirlo con voi."},
-EN:{hero:"A new way to choose a Busti cheese: a few answers, one direction. And for the company, a simple way to learn what customers really want.",cta:"Try the compass",h_quiz:"What are you looking for today?",h_use:"What do I do with it?",h_cmp:"Compare two cheeses",h_store:"Storing and cutting",h_1955:"Pecorino 1955: your wheel",p_1955:"Every wheel of Pecorino 1955 is numbered. Enter your number to get its card.",h_ins:"What the company learns",p_ins:"Every answer is aggregated and anonymous. This is how the picture could look after the test.",h_plan:"A six-week pilot",h_end:"Shall we start with a small test? I’d love to build it with you."},
-FR:{hero:"Une nouvelle façon de choisir un fromage Busti : quelques réponses, une direction. Et pour l’entreprise, un moyen simple de comprendre ce que veulent vraiment les clients.",cta:"Essayer la boussole",h_quiz:"Que cherchez-vous aujourd’hui ?",h_use:"Qu’est-ce que j’en fais ?",h_cmp:"Comparer deux fromages",h_store:"Conservation et découpe",h_1955:"Pecorino 1955 : votre meule",p_1955:"Chaque meule de Pecorino 1955 est numérotée. Saisissez votre numéro pour obtenir sa fiche.",h_ins:"Ce que l’entreprise apprend",p_ins:"Chaque réponse est agrégée et anonyme. Voici à quoi pourrait ressembler le tableau après le test.",h_plan:"Un pilote de six semaines",h_end:"On commence par un petit test ? J’aimerais le construire avec vous."}};
-var C=[
-{n:"Caciotta Toscana",x:20,y:85,m:"misto",d:["Formaggio misto dal sapore delicato, ideale anche in cucina per la sua facilità di fusione.","Mixed-milk cheese with a delicate flavour, also great in cooking because it melts easily.","Fromage mixte au goût délicat, idéal aussi en cuisine car il fond facilement."],h:"È la più gentile del gruppo: sapore delicato, perfetta anche per chi si avvicina ai formaggi per la prima volta. In cucina è un’amica, perché si scioglie con facilità.",u:"Provala in un toast ben caldo, in una torta salata o sulla pasta al forno.",c:"Avvolgila in carta alimentare e tienila in frigorifero. Una volta aperta, meglio consumarla presto.",t:"Tagliala a spicchi o a fette spesse: la pasta tenera si affetta senza fatica."},
-{n:"Pecorino Toscano DOP",x:55,y:50,m:"pecora",d:["Fatto interamente con latte di pecora, molto apprezzato anche all’estero.","Made entirely with sheep’s milk, very popular abroad too.","Fait entièrement avec du lait de brebis, très apprécié aussi à l’étranger."],h:"Un pecorino fatto solo con latte di pecora, apprezzato anche fuori dall’Italia. Un classico che mette d’accordo quasi tutti.",u:"Portalo in tavola a scaglie sopra un primo, oppure al tagliere con miele e frutta.",c:"Frigorifero, avvolto in carta alimentare. Se è già a pezzi, copri bene la parte tagliata.",t:"A spicchi dal centro verso il bordo, oppure a scaglie con il coltello da formaggi."},
-{n:"Pecorino di Fauglia",x:65,y:65,m:"pecora",d:["Descritto da chi l’ha assaggiato come nocciolato e setoso.","Described by tasters as nutty and silky.","Décrit par ceux qui l’ont goûté comme noisetté et soyeux."],h:"Chi l’ha assaggiato lo descrive nocciolato e setoso: un formaggio da gustare con calma, un pezzetto alla volta.",u:"Pane croccante e un po’ di frutta secca, e basta così.",c:"Frigorifero, avvolto in carta alimentare e lontano da cibi dal forte odore.",t:"A spicchi, così ogni assaggio ha un po’ di crosta e un po’ di cuore."},
-{n:"La Pecora Vera",x:45,y:35,m:"pecora",d:["Pecorino semistagionato, equilibrato e dalla sapidità media.","Semi-aged pecorino, balanced, with medium savouriness.","Pecorino demi-affiné, équilibré, de sapidité moyenne."],h:"Il pecorino che sta a metà strada: semistagionato, equilibrato, con una sapidità né timida né invadente.",u:"È il jolly: aperitivo, panino o tagliere misto.",c:"Frigorifero, in carta alimentare. Toglilo mezz’ora prima di servirlo per sentirne meglio i profumi.",t:"Fette regolari per il panino, cubetti per l’aperitivo."},
-{n:"Pecorino al pistacchio di Bronte DOP",x:30,y:22,m:"pecora",d:["Una variante originale, da proporre a chi vuole assaggiare qualcosa di diverso.","An original variety, for those who want to try something different.","Une variante originale, pour ceux qui veulent goûter autre chose."],h:"Per chi ama le sorprese: un pecorino con il pistacchio verde di Bronte DOP, un assaggio fuori dagli schemi.",u:"Mettilo in un tagliere con qualcosa di dolce accanto, o regalalo a chi ama le novità.",c:"Frigorifero, avvolto in carta alimentare. Indicazione generale, da confermare con la scheda del prodotto.",t:"La crosta con il pistacchio in genere non si mangia: toglila e taglia la pasta a fette o a cubetti."},
-{n:"Pecorino in fette (pesto, zafferano, tartufo)",x:55,y:18,m:"pecora",d:["Linea Fette di: sei fette per confezione, in tre varianti aromatiche.","Fette di line: six slices per pack, in three flavoured versions.","Gamme Fette di : six tranches par paquet, en trois variantes aromatisées."],h:"La comodità della fetta senza rinunciare al sapore: sei fette per confezione, con pesto, zafferano o tartufo.",u:"Pratiche per un aperitivo al volo: scegli l’aroma che ti incuriosisce di più.",c:"Confezione chiusa in frigorifero fino alla data indicata. Una volta aperta, richiudila bene.",t:"Sono già affettate: niente coltello, basta aprire la confezione."},
-{n:"Pecorino Roncione",x:88,y:12,m:"pecora",d:["Affinato in una grotta tufacea, intenso, erbaceo e aromatico.","Matured in a tuff cave: intense, herbaceous and aromatic.","Affiné dans une grotte de tuf : intense, herbacé et aromatique."],h:"Il carattere forte della famiglia: affinato in una grotta tufacea, intenso, erbaceo e aromatico. Merita di essere assaggiato con calma.",u:"Da solo, a piccoli pezzi, magari con un vino rosso strutturato.",c:"Frigorifero, in carta alimentare. È a latte crudo: tieni la parte tagliata ben coperta.",t:"A scaglie o a piccoli pezzi irregolari, lasciandolo prima a temperatura ambiente per aprirne gli aromi."}];
-function ix(){return ["IT","EN","FR"].indexOf(lg)}
-function hd(c){return lg==="IT"?c.h:c.d[ix()]}
-var lg="IT";
-function t(k){return L[lg][k]}
-function rend(){document.querySelectorAll('[data-k]').forEach(function(e){e.textContent=t(e.dataset.k)});useShow();cmp();if(last)showRes(last)}
-var ls=document.getElementById('lang');
-Object.keys(L).forEach(function(k){var b=document.createElement('button');b.className='chip';b.textContent=k;b.setAttribute('aria-pressed',k===lg);b.onclick=function(){lg=k;[].forEach.call(ls.children,function(c){c.setAttribute('aria-pressed',c.textContent===k)});rend()};ls.appendChild(b)});
-var Q=[{t:"Che intensità preferisci?",o:[["Delicata",20],["Media",50],["Decisa",88],["Sorprendimi","r"]]},
-{t:"Per quale occasione?",o:[["Aperitivo o degustazione",30],["Cucinare",85],["Un regalo",15],["Indifferente","n"]]},
-{t:"Che vino hai in mente?",o:[["Rosso","R"],["Bianco","B"],["Bollicine","B"],["Nessuno / indifferente","n"]]},
-{t:"Che latte preferisci?",o:[["Pecora","pecora"],["Misto vacca e pecora","misto"],["Indifferente","n"]]}];
-var A=[],i=0,last=null,q=document.getElementById('q');
-function step(){if(i>=Q.length)return done();q.innerHTML='<h3>'+Q[i].t+'</h3><p class="m" style="margin:0">Domanda '+(i+1)+' di '+Q.length+'</p>';
-Q[i].o.forEach(function(o){var b=document.createElement('button');b.className='opt';b.textContent=o[0];b.onclick=function(){A.push(o[1]);i++;step()};q.appendChild(b)})}
-function done(){q.hidden=true;var ux=A[0]==='r'?[20,50,88][Math.floor(Math.random()*3)]:A[0],uy=A[1]==='n'?50:A[1],best=null,bd=1e9;
-C.forEach(function(c){var d=Math.hypot(c.x-ux,c.y-uy);if(A[2]==='R'&&c.x<40)d+=15;if(A[2]==='B'&&c.x>70)d+=15;if(A[3]==='misto'&&c.m==='misto')d-=30;if(A[3]==='pecora'&&c.m!=='pecora')d+=30;if(d<bd){bd=d;best=c}});
-last={b:best,ux:ux,uy:uy};SELI=C.indexOf(best);showRes(last);sync(SELI);document.getElementById('res').scrollIntoView({behavior:'smooth',block:'nearest'})}
-var SELI=0;
-function X(v){return 40+v*1.9}function Y(v){return 190-v*1.7}
-function paint(){C.forEach(function(c,j){var e=document.getElementById('dt'+j);if(e){e.setAttribute('fill',j===SELI?'var(--acc)':'var(--mute)');e.setAttribute('r',j===SELI?8:5)}})}
-function info(){var c=C[SELI],e=document.getElementById('dotInfo');if(e)e.innerHTML='<h3 style="margin:0 0 4px">'+c.n+'</h3><p style="margin:0">'+hd(c)+'</p>'}
-function pick(j){SELI=j;paint();info();sync(j)}
-function showRes(o){var b=o.b,ang=Math.atan2(b.x-50,50-b.y)*180/Math.PI,bi=C.indexOf(b);
-var dots=C.map(function(c,j){return '<g onclick="pick('+j+')" onkeydown="if(event.key===\'Enter\')pick('+j+')" tabindex="0" role="button" aria-label="'+c.n+'" style="cursor:pointer"><circle cx="'+X(c.x)+'" cy="'+Y(c.y)+'" r="14" fill="transparent"/><circle id="dt'+j+'" cx="'+X(c.x)+'" cy="'+Y(c.y)+'" r="5" fill="var(--mute)"/></g>'}).join('');
-var r=document.getElementById('res');r.hidden=false;
-r.innerHTML='<div class="panel"><div class="row"><svg viewBox="0 0 200 200" width="170" aria-label="Bussola"><circle cx="100" cy="100" r="92" fill="none" stroke="var(--acc)" stroke-width="2"/><g id="needle"><path d="M100 22 L109 100 L100 112 L91 100Z" fill="var(--acc)"/><path d="M100 178 L109 100 L91 100Z" fill="var(--mute)" opacity=".5"/></g><circle cx="100" cy="100" r="6" fill="var(--bg)" stroke="var(--acc)" stroke-width="2"/></svg><div style="flex:1;min-width:200px"><div class="m">La tua direzione</div><h3>'+b.n+'</h3><p style="margin:0">'+hd(b)+'</p></div></div>'+
-'<h3 style="margin-top:22px">La mappa del gusto</h3><p class="m" style="margin:0 0 8px">Tocca i punti per scoprire gli altri formaggi. Il cerchio vuoto sei tu, l’anello segna il tuo risultato.</p>'+
-'<svg viewBox="0 0 240 230" width="100%" style="max-width:340px;background:var(--bg);border:1px solid var(--line);border-radius:10px"><line x1="40" y1="190" x2="230" y2="190" stroke="var(--line)"/><line x1="40" y1="10" x2="40" y2="190" stroke="var(--line)"/><text x="40" y="205" font-size="10" fill="var(--mute)">delicato</text><text x="230" y="205" font-size="10" text-anchor="end" fill="var(--mute)">deciso</text><text x="135" y="222" font-size="11" text-anchor="middle" fill="var(--ink)">Intensità (asse X)</text><text transform="rotate(-90 14 100)" x="14" y="100" font-size="9.5" text-anchor="middle" fill="var(--ink)">Uso (asse Y): degustazione → cucina</text><circle cx="'+X(b.x)+'" cy="'+Y(b.y)+'" r="12" fill="none" stroke="var(--acc)" stroke-width="2"/>'+dots+'<circle cx="'+X(o.ux)+'" cy="'+Y(o.uy)+'" r="6" fill="none" stroke="var(--ink)" stroke-width="2"/></svg>'+
-'<div id="dotInfo" class="note" style="margin-top:12px"></div><p><span class="tag">Posizioni indicative, da definire con il team Busti</span></p><button class="btn" id="again">Rifai il test</button> <a class="chip" style="display:inline-block;text-decoration:none;color:inherit" href="#esplora">Vai ai suggerimenti</a></div>';
-paint();info();
-setTimeout(function(){var n=document.getElementById('needle');if(n)n.style.transform='rotate('+(720+ang)+'deg)'},80);
-document.getElementById('again').onclick=function(){A=[];i=0;last=null;r.hidden=true;q.hidden=false;step()}}
-step();
-function fill(id){var s=document.getElementById(id);C.forEach(function(c,k){var o=document.createElement('option');o.value=k;o.textContent=c.n;s.appendChild(o)})}
-['useSel','c1','c2'].forEach(fill);document.getElementById('c2').value=C.length-1;
-function sync(j){document.getElementById('useSel').value=j;useShow()}
-function useShow(){var j=+document.getElementById('useSel').value,c=C[j];
-document.getElementById('useOut').innerHTML='<h3>'+c.n+'</h3><p>'+hd(c)+'</p><p style="margin:0"><b>Suggerimento:</b> '+c.u+'</p><p><span class="tag">Suggerimenti da validare con il vostro team</span></p>';
-document.getElementById('storeOut').innerHTML='<h3 style="margin-top:0">'+c.n+'</h3><p><b>Come conservarlo.</b> '+c.c+'</p><p><b>Come tagliarlo.</b> '+c.t+'</p><span class="tag">Indicazioni generali, da confermare con le schede ufficiali</span>'}
-function bar(v){return '<div class="bar"><i style="width:'+v+'%"></i></div>'}
-function cmp(){var a=C[document.getElementById('c1').value],b=C[document.getElementById('c2').value],k=["IT","EN","FR"].indexOf(lg);
-function col(c){return '<div><h3 style="font-size:1.05rem">'+c.n+'</h3><p class="m">'+c.d[k]+'</p><div class="m">Intensità</div>'+bar(c.x)+'<div class="m">Uso in cucina</div>'+bar(c.y)+'</div>'}
-document.getElementById('cmpOut').innerHTML='<div class="g">'+col(a)+col(b)+'</div><span class="tag">Valori indicativi per il confronto</span>'}
-['useSel'].forEach(function(id){document.getElementById(id).onchange=function(){sync(+this.value)}});['c1','c2'].forEach(function(id){document.getElementById(id).onchange=cmp});
-function wheelSvg(w){if(!(w>0))return '<p class="note" style="margin-top:14px">Inserisci il peso della forma per vederne la proporzione e gli spicchi.</p>';
-var P=Math.round(w*20),n=Math.min(P,40),r=Math.max(40,Math.min(92,60*Math.cbrt(w/2.5))),p='';
-for(var k=0;k<n;k++){var a0=2*Math.PI*k/n-Math.PI/2,a1=2*Math.PI*(k+1)/n-Math.PI/2;p+='<path d="M100 100 L'+(100+r*Math.cos(a0)).toFixed(1)+' '+(100+r*Math.sin(a0)).toFixed(1)+' A'+r+' '+r+' 0 0 1 '+(100+r*Math.cos(a1)).toFixed(1)+' '+(100+r*Math.sin(a1)).toFixed(1)+'Z" fill="'+(k%2?'#b57d36':'#cf9a4c')+'" stroke="#0e0c0a" stroke-width="1"/>'}
-return '<div class="panel row" style="margin-top:14px"><svg viewBox="0 0 200 200" width="190" aria-label="Forma in proporzione"><circle cx="100" cy="100" r="96" fill="none" stroke="var(--line)" stroke-dasharray="3 4"/>'+p+'</svg><div style="flex:1;min-width:200px"><b>Una forma da '+w+' kg</b><p style="margin:6px 0">Circa '+P+' porzioni da 50 g'+(P>40?' (qui mostrate in '+n+' spicchi)':'')+'. Ogni spicchio è una porzione.</p><span class="tag">Dimensione e spicchi indicativi, in proporzione al peso</span></div></div>'}
-function esc(x){return x.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var fn=document.getElementById('fn'),wh=document.getElementById('wh'),FN='',D=[];
-fn.oninput=function(){var v=esc(fn.value.trim()).slice(0,6)||'123';wh.textContent=v;wh.style.fontSize=v.length>4?'2.2rem':'3.2rem'};
-var TT={"Degustazione":"Assaggialo a temperatura ambiente, in piccole scaglie, per apprezzarne consistenza e aromi.","A tavola":"Scaglie su un primo piatto, oppure con miele e frutta.","Abbinamenti":"Vini e altri sapori: da definire con il team Busti."};
-var ST=[["Il latte","Selezione di latte ovino di alta qualità."],["La lavorazione","Lavorazione secondo la tradizione casearia."],["La stagionatura","Un periodo di maturazione."],["Il risultato","Un pecorino dal gusto equilibrato e complesso."]];
-var SE=[["Aspetto","Pasta compatta, giallo paglierino"],["Profumo","Note aromatiche intense"],["Gusto","Dolcezza naturale ed equilibrata"],["Consistenza","Pasta fondente"]];
-function chipRow(id,arr){return '<div id="'+id+'">'+arr.map(function(a){return '<button class="chip" aria-pressed="false" onclick="sel(this)">'+a+'</button>'}).join('')+'</div>'}
-function sel(b){[].forEach.call(b.parentNode.children,function(c){c.setAttribute('aria-pressed',c===b)})}
-function tab(k,b){sel(b);document.getElementById('tt').textContent=TT[k]}
-function dia(){var w=document.getElementById('dw').value,nt=document.getElementById('dn').value;if(!nt&&!w)return;D.push([w,nt]);document.getElementById('dl').innerHTML=D.map(function(d){return '<div class="note" style="margin-top:8px"><b>'+(esc(d[0])||'Il tuo assaggio')+'</b><br>'+esc(d[1])+'</div>'}).join('');document.getElementById('dw').value='';document.getElementById('dn').value=''}
-function cert(){var m=esc(document.getElementById('cm').value)||'Un assaggio da ricordare';document.getElementById('cr').innerHTML='<div class="cert"><div class="m">Certificato della forma</div><div class="big">N. '+FN+'</div><div style="color:var(--acc)">1955 Pecorino</div><p style="margin:10px auto">“'+m+'”</p><span class="tag">Caseificio Busti, dal 1955 · esempio</span></div>'}
-function thanks(){document.getElementById('th').innerHTML='<div class="note">Grazie! In un’implementazione reale le risposte sarebbero volontarie e raccolte in forma aggregata.</div>'}
-document.getElementById('fgo').onclick=function(){var n=esc(fn.value.trim()).slice(0,6),w=parseFloat(document.getElementById('fw').value.replace(',','.')),o=document.getElementById('fout');
-if(!n){o.innerHTML='<p>Inserisci il numero stampato sulla tua forma.</p>';return}FN=n;
-var h='<div class="panel" style="margin-top:24px"><div class="row" style="justify-content:space-between"><div><div class="m">La tua forma</div><div class="big">N. '+n+'</div><div style="color:var(--acc)">1955 Pecorino</div></div><div class="g" style="flex:1;min-width:220px"><div><div class="m">Prodotto</div>1955 Pecorino</div><div><div class="m">Tipo di latte</div>Ovino</div><div><div class="m">Stagionatura</div>Da collegare</div><div><div class="m">Porzioni</div>'+(w>0?'circa '+Math.round(w*20)+' da 50 g':'Inserisci il peso')+'</div></div></div><p class="note">Data di produzione, lotto e percorso di stagionatura di questa forma comparirebbero qui, solo con i dati reali del Caseificio Busti.</p></div>';
-h+=wheelSvg(w);
-h+='<h3 style="margin-top:28px">Il viaggio della tua forma</h3><div class="steps">'+ST.map(function(x,k){return '<div><i>'+(k+1)+'</i><br><b>'+x[0]+'</b><br><span class="m">'+x[1]+'</span></div>'}).join('')+'</div>';
-h+='<h3>Un equilibrio di aromi e consistenze</h3><div class="g">'+SE.map(function(x){return '<div class="panel" style="padding:14px"><b>'+x[0]+'</b><br><span class="m">'+x[1]+'</span></div>'}).join('')+'</div><p><span class="tag">Descrizioni di esempio, da validare con le schede ufficiali</span></p>';
-h+='<h3 style="margin-top:28px">Come gustarlo</h3><div>'+Object.keys(TT).map(function(k){return '<button class="chip" aria-pressed="false" onclick="tab(\''+k+'\',this)">'+k+'</button>'}).join('')+'</div><p id="tt" class="m">Scegli un momento.</p>';
-h+='<h3 style="margin-top:28px">Rendi unica la tua forma</h3><div class="g"><div class="panel"><b>Diario di degustazione</b><input id="dw" placeholder="Con chi lo hai assaggiato?"><textarea id="dn" placeholder="Cosa hai percepito, quale abbinamento?"></textarea><button class="btn" onclick="dia()">Salva nel diario</button><div id="dl"></div></div><div class="panel"><b>Certificato digitale</b><input id="cm" placeholder="Un messaggio per chi lo riceve"><button class="btn" onclick="cert()">Crea certificato</button><div id="cr"></div></div></div>';
-h+='<div class="panel" style="margin-top:14px"><b>Racconta la tua esperienza</b><p class="m" style="margin:4px 0">Cosa hai apprezzato di più?</p>'+chipRow('r1',['Gusto','Consistenza','Aspetto','Storia'])+'<p class="m" style="margin:8px 0 4px">Come lo hai gustato?</p>'+chipRow('r2',['Da solo','A tavola','Con vino'])+'<p class="m" style="margin:8px 0 4px">Lo riacquisteresti?</p>'+chipRow('r3',['Sì','Forse','No'])+'<button class="btn" onclick="thanks()">Invia</button><div id="th"></div></div>';
-h+='<div class="panel" style="margin-top:14px"><b>Al ristorante</b><p style="margin:6px 0 0">Il cameriere porta in tavola il 1955 Pecorino, il cliente inquadra un QR code e apre una versione rapida del passaporto: storia, caratteristiche e un consiglio di degustazione. I feedback arriverebbero a Busti in forma aggregata, se il ristorante aderisce.</p></div>';
-o.innerHTML=h;o.scrollIntoView({behavior:'smooth',block:'nearest'})};
-rend();
-</script></body></html>
+const NOME="Amore"; // ← sostituisci con il suo nome
+const OPZ=[["diner","🍔","American diner"],["pizza","🍕","Pizza"],["piadine","🫓","Piadine"],["grano","🌾","Grano Libero"],["cinema","🎬","Cinema"],["tacos","🌮","Tacos"]];
+const DET={
+diner:["Cosa ordiniamo?","Cheeseburger classico|Bacon burger|Hot dog|Milkshake e patatine"],
+pizza:["Che pizza?","Margherita|Diavola|Prosciutto e funghi|Quattro formaggi"],
+piadine:["Che piadina?","Crudo e squacquerone|Salsiccia e cipolla|Caprese|Nutella (dolce)"],
+grano:["Cosa proviamo?","Pizza|Pasta|Un dolce|Sorpresa dal menu"],
+cinema:["Che film vediamo?","Commedia romantica|Thriller|Animazione|Scegli tu, io ci sto"],
+tacos:["Che tacos?","Pollo|Manzo|Vegetariani|Un po’ di tutto"]};
+const S={d:"",t:"",o:null,x:null};let step=0;
+const c=document.getElementById("c"),pb=document.getElementById("pb"),n=document.getElementById("n");
+const hints=["psst… il NO è un po’ timido","dai, riprova 😏","non ce la farai mai","la risposta giusta c’è, ovviamente","ormai arrenditi 💕"];let tries=0;
+function head(){n.textContent=(step+1)+" / 6";pb.style.width=((step+1)/6*100)+"%"}
+function go(i){step=i;render()}
+function render(){head();
+if(step==0){c.innerHTML=`<div class="eyebrow">❤ Una domandina importante</div><h1>Usciresti a cena con me?</h1><p class="sub">Sii sincera. C’è una risposta giusta, ovviamente.</p><div class="row"><button class="btn" id="yes">SÌ ✨</button><button class="btn" id="no">NO</button></div><div class="hint" id="h">${hints[0]}</div>`;
+yes.onclick=()=>go(1);setupNo()}
+if(step==1){c.innerHTML=`<div class="emo">🎉</div><h1>ASPETTA, HAI DAVVERO DETTO SÌ??</h1><p class="sub">Ero prontissimo a un no 🥹</p><button class="btn" onclick="go(2)">ok, organizziamo →</button>`;burst(10)}
+if(step==2){c.innerHTML=`<div class="eyebrow">Salviamo il momento</div><h1>Allora… quando sei libera?</h1><p class="sub">Scegli un giorno e un’ora che ti piacciono.</p><label>Data</label><input type="date" id="d" value="${S.d}"><label>Ora</label><input type="time" id="t" value="${S.t}"><br><br><button class="btn" id="nx" onclick="go(3)">avanti: cosa mangiamo →</button>`;
+const chk=()=>{S.d=d.value;S.t=t.value;nx.disabled=!(S.d&&S.t)};d.min=new Date().toISOString().slice(0,10);d.oninput=t.oninput=chk;chk()}
+if(step==3){c.innerHTML=`<div class="eyebrow">Ricerca per la serata</div><h1>Che ci va di fare? ✨</h1><p class="sub">Scegli il mood</p><div class="grid">${OPZ.map(o=>`<button class="opt ${S.o==o[0]?"on":""}" data-k="${o[0]}"><span>${o[1]}</span>${o[2]}</button>`).join("")}</div><button class="btn" id="nx" onclick="go(4)" ${S.o?"":"disabled"}>questo è il mood →</button>`;
+c.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(S.o!=b.dataset.k)S.x=null;S.o=b.dataset.k;render()})}
+if(step==4){const [q,l]=DET[S.o];const em=OPZ.find(o=>o[0]==S.o)[1];c.innerHTML=`<div class="emo">${em}</div><h1>${q}</h1><p class="sub">Ultimo dettaglio, promesso.</p><div class="grid">${l.split("|").map(x=>`<button class="opt ${S.x==x?"on":""}">${x}</button>`).join("")}</div><button class="btn" id="nx" onclick="go(5)" ${S.x?"":"disabled"}>vediamo il riepilogo →</button>`;
+c.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{S.x=b.textContent;render()})}
+if(step==5){const o=OPZ.find(o=>o[0]==S.o);const dt=new Date(S.d+"T00:00");const ds=dt.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
+c.innerHTML=`<div class="eyebrow">❤ Il nostro appuntamento</div><h1>Ufficialmente fissato</h1><div class="paper">Per <b>${NOME}</b>,<hr>📅 <b>${ds}</b><br>🕐 alle <b>${S.t}</b><br>${o[1]} <b>${o[2]}</b> — ${S.x}<hr>Passo a prenderti io. Tu devi solo essere bellissima, ma tanto lo sei sempre. Il prezzo? Un sorriso, qualche risata e il tuo braccio sotto il mio. 💕</div><button class="btn" id="ok">Confermo con tutto il cuore ❤</button>`;
+ok.onclick=()=>{burst(40);c.querySelector(".paper").innerHTML+="<hr><b>Confermato.</b> Non vedo l’ora. Ti amo. ❤";ok.remove()}}
+}
+function setupNo(){const no=document.getElementById("no"),yes=document.getElementById("yes");
+function flee(px,py){tries++;document.getElementById("h").textContent=hints[Math.min(tries,hints.length-1)];
+const w=no.offsetWidth,h=no.offsetHeight,yr=yes.getBoundingClientRect();let x,y;
+for(let i=0;i<40;i++){x=10+Math.random()*(innerWidth-w-20);y=90+Math.random()*(innerHeight-h-110);
+const far=Math.hypot(x+w/2-px,y+h/2-py)>160;const ov=x<yr.right+10&&x+w>yr.left-10&&y<yr.bottom+10&&y+h>yr.top-10;if(far&&!ov)break}
+no.style.position="fixed";no.style.left=x+"px";no.style.top=y+"px"}
+const stop=e=>{e.preventDefault();e.stopPropagation();const p=e.touches?e.touches[0]:e;flee(p.clientX,p.clientY)};
+["pointerenter","pointerdown","touchstart","mousedown","click"].forEach(ev=>no.addEventListener(ev,stop,{passive:false}));
+document.addEventListener("pointermove",e=>{if(!document.getElementById("no"))return;const r=no.getBoundingClientRect();
+if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<90)flee(e.clientX,e.clientY)})}
+function burst(k){for(let i=0;i<k;i++){const e=document.createElement("div");e.className="heart";e.textContent=["❤","💖","💕","✨"][i%4];e.style.left=Math.random()*100+"vw";e.style.fontSize=(16+Math.random()*24)+"px";e.style.animationDelay=Math.random()*1.2+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),4500)}}
+render();
+</script>
+</body>
+</html>
